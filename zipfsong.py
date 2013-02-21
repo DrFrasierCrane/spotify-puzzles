@@ -30,14 +30,7 @@ for i in range(n):
 	qualities.append(frequencies[i] / zipfs[i])
 
 
-trk_qual = {}
+trk_qual = zip(track_names, qualities)
 
-for i in range(n):
-	trk_qual[track_names[i]] = qualities[i]
+print trk_qual
 
-
-output = sorted(trk_qual.iteritems(), key=itemgetter(1))
-output.reverse()
-
-for i in range(m):
-	print output[i][0]
