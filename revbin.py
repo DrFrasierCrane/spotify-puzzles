@@ -1,4 +1,5 @@
-# Start the tool and check for inputs less than or equal to zero.
+## Code written by Tyler Sartin on 18 February 2013.
+## Start the tool and check for inputs less than or equal to zero.
 def start(num):	
 	if num == 0:
 		print 0
