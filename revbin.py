@@ -10,14 +10,12 @@ def start(num):
 
 
 def convert(input):
-	global binlist
 	binlist = []
 	
 	while input > 0:
-		binlist.append(input % 2)
+		binlist.insert(0, input % 2)
 		input = input / 2
 	
-	binlist.reverse()
 	new = []
 	
 	for i in range(len(binlist)):
@@ -26,7 +24,4 @@ def convert(input):
 	print sum(new)
 
 
-num = int(raw_input())
-
-
-start(num)
+start(int(raw_input()))
