@@ -1,4 +1,4 @@
-## Code written by Tyler Sartin 20 February 2013 ##
+## Code written by Tyler Sartin 21 February 2013 ##
 from operator import itemgetter
 
 [n, m] = map(int, raw_input().split())
@@ -6,31 +6,29 @@ from operator import itemgetter
 frequencies = []
 track_names = []
 
-## For all tracks, split titles and frequencies.
+## For all tracks, split titles and frequencies. Append to separate lists.
 for i in range(n):
 	item = raw_input().split()
 	frequencies.append(item[0])
 	track_names.append(item[1])
 
 
-frequencies = map(int, frequencies)
+frequencies = map(long, frequencies)
 
-## Create three lists, fis is a list of the frequencies, zis is list of the Zipf values
-## and qis is a list of qualities.
-## zi = 1 / 1 + i
-## qi = fi / zi
+## Create a list of Zipfs (zi = 1 / i)
+## Create a list of the qualities which are fi / zi ==> fi * i
 
-zipfs = []
+zipfs = range(1, n + 1)
 qualities = []
-for i in range(n):
-	zipfs.append(1 / (1.0 + i))
-
 
 for i in range(n):
-	qualities.append(frequencies[i] / zipfs[i])
+	qualities.append(long(frequencies[i] * zipfs[i]))
 
-
+## Create a tuple with the track names and their qualities. Then sort the tuple
+## based on their qualities. Reverse the list for descending order.
 trk_qual = zip(track_names, qualities)
+output = sorted(trk_qual, key=itemgetter(1), reverse=True)
 
-print trk_qual
-
+## Output only the number needed (m)
+for i in range(m):
+	print output[i][0]
