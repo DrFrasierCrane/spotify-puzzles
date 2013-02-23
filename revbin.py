@@ -15,7 +15,7 @@ def convert(input):
 	
 	while input > 0:
 		binlist.insert(0, input % 2)
-		input = input / 2
+		input /= 2
 	
 	new = []
 	
