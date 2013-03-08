@@ -1,6 +1,10 @@
 ## Code written by Tyler Sartin on 18 February 2013.
 ## Start the tool and check for inputs less than or equal to zero.
-def start(num):	
+
+def start(num):
+	'''Takes in a positive integer and does a check
+	INPUT: Positive decimal integer
+	OUTPUT: None carries user to convert()'''
 	if num == 0:
 		print 0
 	elif num < 0:
@@ -11,6 +15,9 @@ def start(num):
 
 
 def convert(input):
+	'''Takes the verified input and converts decimal to reverse binary
+	INPUT: Positive decimal integer
+	OUTPUT: Reversed binary equivalent'''
 	binlist = []
 	
 	while input > 0:
